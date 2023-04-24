@@ -1,8 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { IContactsItem } from '../../types/appTypes';
 import { Item, Phone, Button } from './ContactsListItem.styled';
 
-export function ContactListItem({ name, number, onClick }) {
+export const ContactListItem:React.FC<IContactsItem> = ({ name, number, onClick })=> {
   return (
     <Item>
       <p>
@@ -14,8 +14,3 @@ export function ContactListItem({ name, number, onClick }) {
     </Item>
   );
 }
-ContactListItem.propTypes = {
-  name: PropTypes.string.isRequired,
-  number: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
-};

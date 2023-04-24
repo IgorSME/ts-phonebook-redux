@@ -2,7 +2,7 @@ import React from 'react';
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
-import { Container } from 'App.styled';
+import { Container } from '../App.styled';
 
 export function App() {
   return (

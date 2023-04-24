@@ -1,13 +1,13 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import { IContacts } from '../../types/appTypes';
 import { ContactListItem } from '../ContactListItem/ContactListItem';
 import { Contacts } from './ContactList.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { delContact, getContacts, getFilter } from 'Redux/contactsSlice';
+import { delContact, getContacts, getFilter } from '../../Redux/contactsSlice';
 
-export function ContactList() {
+export const ContactList:React.FC =()=> {
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const contacts:IContacts = useSelector(getContacts);
   const value = useSelector(getFilter);
 
   const getFilteredContacts = () => {
@@ -34,13 +34,4 @@ export function ContactList() {
     </Contacts>
   );
 }
-// ContactList.propTypes = {
-//   contacts: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       id: PropTypes.string.isRequired,
-//       name: PropTypes.string.isRequired,
-//       number: PropTypes.string.isRequired,
-//     })
-//   ).isRequired,
-//   onDelete: PropTypes.func.isRequired,
-// };
+

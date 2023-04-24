@@ -1,14 +1,14 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
-import { Input, Label } from 'components/ContactForm/ContactForm.styled';
+import { Input, Label } from '../../components/ContactForm/ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeFilter, getFilter } from 'Redux/contactsSlice';
+import { changeFilter, getFilter } from '../../Redux/contactsSlice';
 export { Label, Input } from '../ContactForm/ContactForm.styled';
 
-export function Filter() {
+export const Filter:React.FC =()=> {
   const dispatch = useDispatch();
   const value = useSelector(getFilter);
-  const onChangeFilter = e => {
+  const onChangeFilter = (e:React.ChangeEvent<HTMLInputElement>) => {
     dispatch(changeFilter(e.currentTarget.value));
   };
 
@@ -24,7 +24,4 @@ export function Filter() {
     </div>
   );
 }
-// Filter.propTypes = {
-//   value: PropTypes.string.isRequired,
-//   onChange: PropTypes.func.isRequired,
-// };
+

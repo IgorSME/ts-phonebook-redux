@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-// import PropTypes from 'prop-types';
+import { IContacts } from '../../types/appTypes';
 import { Form, Label, Input, Button } from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
-import { add, getContacts } from 'Redux/contactsSlice';
+import { add, getContacts } from '../../Redux/contactsSlice';
 
-export function ContactForm() {
+export const ContactForm:React.FC =() =>{
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const contacts:IContacts = useSelector(getContacts);
 
-  const handleChange = e => {
+  const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     switch (name) {
       case 'name':
@@ -35,7 +35,7 @@ export function ContactForm() {
     dispatch(add(newContact));
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     addNewContact();
     reset();
@@ -71,6 +71,3 @@ export function ContactForm() {
     </Form>
   );
 }
-// ContactForm.propTypes = {
-//   onSubmit: PropTypes.func.isRequired,
-// };
